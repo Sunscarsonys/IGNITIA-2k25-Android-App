@@ -10,6 +10,11 @@ export default function LoginScreen() {
       }}
     >
       <Text>This is Login Screen</Text>
+      <View>
+        <Text>
+          Hello World How are you..
+        </Text>
+      </View>
     </View>
   );
 }
