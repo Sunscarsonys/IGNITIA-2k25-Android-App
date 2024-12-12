@@ -7,7 +7,7 @@ export default function Index() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.navigate("LoginScreen");
+      navigation.navigate("SplashScreen");
     }, 3000);
 
     return () => clearTimeout(timer);

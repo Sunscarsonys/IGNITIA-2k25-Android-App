@@ -1,6 +1,9 @@
-import { Text, View } from "react-native";
+import { Text, View, Button } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 export default function NotificationScreen() {
+  const navigation = useNavigation();
+
   return (
     <View
       style={{
@@ -10,6 +13,8 @@ export default function NotificationScreen() {
       }}
     >
       <Text>This is Notification Screen</Text>
+
+      <Button title="Go Back" onPress={() => navigation.goBack()} />
     </View>
   );
 }
