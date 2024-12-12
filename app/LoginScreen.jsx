@@ -1,14 +1,10 @@
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import { useNavigation, NavigationProp } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { router } from "expo-router";
 
-type RootStackParamList = {
-  drawer: undefined;
-};
-
 export default function LoginScreen() {
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const navigation = useNavigation();
 
   const handleLogin = () => {
     router.push("/drawer");

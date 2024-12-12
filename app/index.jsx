@@ -1,14 +1,9 @@
 import React, { useEffect } from "react";
 import { Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-
-type RootStackParamList = {
-  LoginScreen: undefined;
-};
 
 export default function Index() {
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const navigation = useNavigation();
 
   useEffect(() => {
     const timer = setTimeout(() => {
