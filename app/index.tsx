@@ -1,6 +1,23 @@
+import React, { useEffect } from "react";
 import { Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+
+type RootStackParamList = {
+  LoginScreen: undefined;
+};
 
 export default function Index() {
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.navigate("LoginScreen");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [navigation]);
+
   return (
     <View
       style={{
@@ -9,7 +26,14 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      <Text
+        style={{
+          fontSize: 36,
+          fontWeight: "bold",
+        }}
+      >
+        IGNITIA 2K25
+      </Text>
     </View>
   );
 }
