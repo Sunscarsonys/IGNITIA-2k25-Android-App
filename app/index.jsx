@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Text, View } from "react-native";
+import { View, ImageBackground, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Index() {
@@ -7,28 +7,26 @@ export default function Index() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.navigate("SplashScreen");
+      navigation.navigate("PreSplashScreen");
     }, 3000);
 
     return () => clearTimeout(timer);
   }, [navigation]);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text
-        style={{
-          fontSize: 36,
-          fontWeight: "bold",
-        }}
-      >
-        IGNITIA 2K25
-      </Text>
-    </View>
+    <ImageBackground
+      source={require("../assets/images/splash.png")}
+      style={styles.container}
+    ></ImageBackground>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    height: "100%",
+    width: "100%",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

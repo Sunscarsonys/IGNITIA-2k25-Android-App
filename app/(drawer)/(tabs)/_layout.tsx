@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import React from "react";
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from "@expo/vector-icons";
 
 export default function TabLayout() {
   return (
@@ -9,41 +9,41 @@ export default function TabLayout() {
         headerShown: false,
       }}
     >
-      <Tabs.Screen 
-        name="HeroScreen" 
-        options={{ 
-          title: "Home", 
+      <Tabs.Screen
+        name="HeroScreen"
+        options={{
+          title: "Home",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size} color={color} />
-          ) 
-        }} 
+          ),
+        }}
       />
-      <Tabs.Screen 
-        name="SearchScreen" 
-        options={{ 
-          title: "Search", 
+      <Tabs.Screen
+        name="SearchScreen"
+        options={{
+          title: "Search",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="search" size={size} color={color} />
-          ) 
-        }} 
+          ),
+        }}
       />
-      <Tabs.Screen 
-        name="ExploreScreen" 
-        options={{ 
-          title: "Explore", 
+      <Tabs.Screen
+        name="ExploreScreen"
+        options={{
+          title: "Explore",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="compass" size={size} color={color} />
-          ) 
-        }} 
+          ),
+        }}
       />
-      <Tabs.Screen 
-        name="ProfileScreen" 
-        options={{ 
-          title: "Profile", 
+      <Tabs.Screen
+        name="ProfileScreen"
+        options={{
+          title: "Profile",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="person" size={size} color={color} />
-          ) 
-        }} 
+          ),
+        }}
       />
     </Tabs>
   );

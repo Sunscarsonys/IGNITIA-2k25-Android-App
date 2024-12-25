@@ -4,7 +4,7 @@ import { router } from "expo-router";
 
 export default function LoginScreen() {
   const handleLogin = () => {
-    router.push("/drawer");
+    router.push("/(drawer)/(tabs)/HeroScreen");
   };
 
   const handleRegister = () => {

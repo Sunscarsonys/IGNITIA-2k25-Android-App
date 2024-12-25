@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "ignitia-2k25",
+    "name": "ignitia",
     "slug": "ignitia-2k25",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "ignitia",
+    "scheme": "ignitia-2k25",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -14,7 +14,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/splash-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#0E0019"
       }
     },
     "web": {
@@ -30,7 +30,7 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#0E0019"
         }
       ]
     ],

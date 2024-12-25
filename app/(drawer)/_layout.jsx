@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { Drawer } from "expo-router/drawer";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
-import { usePathname } from "expo-router";
+import { router, usePathname } from "expo-router";
 
 const CustomDrawerContent = (props) => {
-  const { navigation } = props;
   const pathname = usePathname();
 
   useEffect(() => {
@@ -16,43 +15,31 @@ const CustomDrawerContent = (props) => {
       <DrawerItem
         label={"Home"}
         onPress={() => {
-          navigation.navigate("tabs", { screen: "HeroScreen" });
+          router.push("/(drawer)/(tabs)/HeroScreen");
         }}
       />
       <DrawerItem
-        label={"Calendar"}
+        label={"Search"}
         onPress={() => {
-          navigation.navigate("CalendarScreen");
+          router.push("/(drawer)/(tabs)/HeroScreen");
         }}
       />
       <DrawerItem
-        label={"Cart"}
+        label={"Explore"}
         onPress={() => {
-          navigation.navigate("CartScreen");
+          router.push("/(drawer)/(tabs)/HeroScreen");
         }}
       />
       <DrawerItem
-        label={"Events"}
+        label={"Profile"}
         onPress={() => {
-          navigation.navigate("EventScreen");
+          router.push("/(drawer)/(tabs)/HeroScreen");
         }}
       />
       <DrawerItem
-        label={"Sponsors"}
+        label={"Feed"}
         onPress={() => {
-          navigation.navigate("SponsorScreen");
-        }}
-      />
-      <DrawerItem
-        label={"Team"}
-        onPress={() => {
-          navigation.navigate("TeamScreen");
-        }}
-      />
-      <DrawerItem
-        label={"Tickets"}
-        onPress={() => {
-          navigation.navigate("TicketScreen");
+          router.push("/(drawer)/(tabs)/feed");
         }}
       />
     </DrawerContentScrollView>
@@ -62,18 +49,17 @@ const CustomDrawerContent = (props) => {
 export default function Layout() {
   return (
     <Drawer
-      drawerContent={(props) => (
-        <CustomDrawerContent {...props} navigation={props.navigation} />
-      )}
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{ headerShown: false }}
     >
-      <Drawer.Screen name="tabs" options={{ headerShown: true }} />
+      <Drawer.Screen name="(tabs)" options={{ headerShown: true }} />
+      <Drawer.Screen name="HomeScreen" options={{ headerShown: true }} />
+      <Drawer.Screen name="EventScreen" options={{ headerShown: true }} />
       <Drawer.Screen name="CalendarScreen" options={{ headerShown: true }} />
       <Drawer.Screen name="CartScreen" options={{ headerShown: true }} />
-      <Drawer.Screen name="EventScreen" options={{ headerShown: true }} />
+      <Drawer.Screen name="TicketScreen" options={{ headerShown: true }} />
       <Drawer.Screen name="SponsorScreen" options={{ headerShown: true }} />
       <Drawer.Screen name="TeamScreen" options={{ headerShown: true }} />
-      <Drawer.Screen name="TicketScreen" options={{ headerShown: true }} />
     </Drawer>
   );
 }
