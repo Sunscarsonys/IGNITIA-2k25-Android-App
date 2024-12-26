@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
     marginTop: -30,
     flex: 1,
     width: "100%",
-    padding: 10,
     justifyContent: "center",
     alignSelf: "center",
   },
