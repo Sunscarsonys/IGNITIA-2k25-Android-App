@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   modalBackground: {
-    padding: 30,
+    padding: 20,
     alignItems: "center",
   },
   modalHeading: {
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "black",
     textAlign: "center",
-    marginBottom: 20,
+    marginBottom: 10,
     padding: 10,
   },
   signInButton: {
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 14,
     marginBottom: 20,
-    width: "80%",
+    width: "90%",
   },
   buttonContent: {
     flexDirection: "row",
