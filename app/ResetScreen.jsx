@@ -14,6 +14,7 @@ export default function ResetScreen() {
   const router = useRouter();
   const handleContinue = () => {
     // Add logic for password reset
+    router.push("/VerificationScreen");
     console.log("Password reset process initiated");
   };
 
@@ -32,6 +33,15 @@ export default function ResetScreen() {
       />
       <Text style={styles.title}>Reset Password</Text>
       <Text style={styles.subtitle}>Create your new password</Text>
+      <View style={styles.inputContainer}>
+        <Ionicons name="call-outline" size={24} color="#fff" />
+        <TextInput
+          style={styles.input}
+          placeholder="Registered Number"
+          placeholderTextColor="#ffffffaa"
+          secureTextEntry={true}
+        />
+      </View>
       <View style={styles.inputContainer}>
         <Ionicons name="lock-closed-outline" size={24} color="#fff" />
         <TextInput
@@ -89,7 +99,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    color: "#fff",
+    color: "#EEEEEE",
     textAlign: "center",
     marginBottom: 30,
   },

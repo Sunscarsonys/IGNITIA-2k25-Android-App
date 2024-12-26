@@ -20,6 +20,7 @@ export default function SignUpScreen() {
 
   const handleSignUp = () => {
     console.log("Sign Up button pressed");
+    router.push("/VerificationScreen");
   };
 
   const inputs = [
