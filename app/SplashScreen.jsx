@@ -147,7 +147,9 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   modalBackground: {
-    padding: 20,
+    paddingLeft: 20,
+    paddingTop: 20,
+    paddingRight: 20,
     alignItems: "center",
   },
   modalHeading: {

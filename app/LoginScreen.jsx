@@ -85,12 +85,12 @@ const styles = StyleSheet.create({
   },
   logo: {
     top: 30,
-    width: 260,
-    height: 100,
+    width: 240,
+    height: 90,
   },
   title: {
     textAlign: "center",
-    fontSize: 46,
+    fontSize: 42,
     color: "#fff",
     marginBottom: 30,
     fontWeight: "600",
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     width: "100%",
     marginBottom: 20,
     paddingHorizontal: 15,
-    height: 54,
+    height: 50,
     borderWidth: 1,
     borderColor: "#CC9913",
   },
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   signInButton: {
     alignSelf: "center",
     width: "70%",
-    height: 54,
+    height: 50,
     borderRadius: 14,
     alignItems: "center",
     justifyContent: "center",

@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     marginBottom: 20,
     paddingHorizontal: 15,
-    height: 54,
+    height: 50,
     borderWidth: 1,
     borderColor: "#CC9913",
   },
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   continueButton: {
     alignSelf: "center",
     width: "70%",
-    height: 54,
+    height: 50,
     borderRadius: 14,
     alignItems: "center",
     justifyContent: "center",

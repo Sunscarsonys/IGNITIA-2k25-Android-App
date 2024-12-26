@@ -60,41 +60,45 @@ export default function SignUpScreen() {
   );
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={handleBack}>
-        <Ionicons name="arrow-back" size={24} color="#fff" />
-      </TouchableOpacity>
-      <FlatList
-        data={inputs}
-        renderItem={renderInput}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.inputWrapper}
-        ListHeaderComponent={<Text style={styles.title}>Sign Up</Text>}
-        ListFooterComponent={
-          <View>
-            <LinearGradient
-              colors={["#D19A08", "#FEDB7E", "#D19A08"]}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              style={styles.signUpButton}
-            >
-              <TouchableOpacity onPress={handleSignUp}>
-                <Text style={styles.signUpText}>SIGN UP</Text>
+    <>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.backButton} onPress={handleBack}>
+          <Ionicons name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.container}>
+        <FlatList
+          data={inputs}
+          renderItem={renderInput}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.inputWrapper}
+          ListHeaderComponent={<Text style={styles.title}>Sign Up</Text>}
+          ListFooterComponent={
+            <View>
+              <LinearGradient
+                colors={["#D19A08", "#FEDB7E", "#D19A08"]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                style={styles.signUpButton}
+              >
+                <TouchableOpacity onPress={handleSignUp}>
+                  <Text style={styles.signUpText}>SIGN UP</Text>
+                </TouchableOpacity>
+              </LinearGradient>
+              <TouchableOpacity
+                style={styles.signInWrapper}
+                onPress={() => router.push("/LoginScreen")}
+              >
+                <Text style={styles.signInText}>
+                  Already have an account?{" "}
+                  <Text style={styles.signInLink}>Sign In</Text>
+                </Text>
               </TouchableOpacity>
-            </LinearGradient>
-            <TouchableOpacity
-              style={styles.signInWrapper}
-              onPress={() => router.push("/LoginScreen")}
-            >
-              <Text style={styles.signInText}>
-                Already have an account?{" "}
-                <Text style={styles.signInLink}>Sign In</Text>
-              </Text>
-            </TouchableOpacity>
-          </View>
-        }
-      />
-    </View>
+            </View>
+          }
+        />
+      </View>
+    </>
   );
 }
 
@@ -105,6 +109,14 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: "center",
   },
+  header: {
+    top: 0,
+    width: "100%",
+    height: 40,
+    padding: 0,
+    margin: 0,
+    backgroundColor: "#0E0019",
+  },
   backButton: {
     position: "absolute",
     top: 20,
@@ -113,16 +125,16 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
-    fontSize: 46,
+    fontSize: 42,
     color: "#fff",
     marginBottom: 30,
     fontWeight: "600",
   },
   inputWrapper: {
+    marginTop: 30,
     width: "100%",
     paddingHorizontal: 5,
     paddingBottom: 20,
-    flex: 1,
     alignSelf: "center",
     justifyContent: "center",
   },
@@ -135,7 +147,7 @@ const styles = StyleSheet.create({
     borderColor: "#CC9913",
     marginBottom: 20,
     paddingHorizontal: 15,
-    height: 54,
+    height: 50,
   },
   input: {
     flex: 1,
@@ -147,7 +159,7 @@ const styles = StyleSheet.create({
   signUpButton: {
     alignSelf: "center",
     width: "70%",
-    height: 54,
+    height: 50,
     borderRadius: 14,
     alignItems: "center",
     justifyContent: "center",
