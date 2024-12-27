@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -12,8 +12,8 @@ import { LinearGradient } from "expo-linear-gradient";
 
 export default function ResetScreen() {
   const router = useRouter();
+
   const handleContinue = () => {
-    // Add logic for password reset
     router.push("/VerificationScreen");
     console.log("Password reset process initiated");
   };
@@ -21,6 +21,9 @@ export default function ResetScreen() {
   const handleBack = () => {
     router.back();
   };
+
+  const [isPasswordVisible, setPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -33,35 +36,55 @@ export default function ResetScreen() {
       />
       <Text style={styles.title}>Reset Password</Text>
       <Text style={styles.subtitle}>Create your new password</Text>
+
       <View style={styles.inputContainer}>
-        <Ionicons name="call-outline" size={24} color="#fff" />
+        <Ionicons name="call-outline" size={22} color="#fff" />
         <TextInput
           style={styles.input}
           placeholder="Registered Number"
           placeholderTextColor="#ffffffaa"
-          secureTextEntry={true}
+          keyboardType="phone-pad"
         />
       </View>
+
       <View style={styles.inputContainer}>
-        <Ionicons name="lock-closed-outline" size={24} color="#fff" />
+        <Ionicons name="lock-closed-outline" size={22} color="#fff" />
         <TextInput
           style={styles.input}
           placeholder="Your Password"
           placeholderTextColor="#ffffffaa"
-          secureTextEntry={true}
+          secureTextEntry={!isPasswordVisible}
         />
-        <Ionicons name="eye-off-outline" size={24} color="#fff" />
+        <TouchableOpacity
+          onPress={() => setPasswordVisible(!isPasswordVisible)}
+        >
+          <Ionicons
+            name={isPasswordVisible ? "eye-off-outline" : "eye-outline"}
+            size={20}
+            color="#fff"
+          />
+        </TouchableOpacity>
       </View>
+
       <View style={styles.inputContainer}>
-        <Ionicons name="lock-closed-outline" size={24} color="#fff" />
+        <Ionicons name="lock-closed-outline" size={22} color="#fff" />
         <TextInput
           style={styles.input}
           placeholder="Confirm Password"
           placeholderTextColor="#ffffffaa"
-          secureTextEntry={true}
+          secureTextEntry={!isConfirmPasswordVisible}
         />
-        <Ionicons name="eye-off-outline" size={24} color="#fff" />
+        <TouchableOpacity
+          onPress={() => setConfirmPasswordVisible(!isConfirmPasswordVisible)}
+        >
+          <Ionicons
+            name={isConfirmPasswordVisible ? "eye-off-outline" : "eye-outline"}
+            size={20}
+            color="#fff"
+          />
+        </TouchableOpacity>
       </View>
+
       <LinearGradient
         colors={["#D19A08", "#FEDB7E", "#D19A08"]}
         start={{ x: 0, y: 0 }}

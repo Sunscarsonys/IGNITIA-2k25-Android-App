@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   loaderBarContainer: {
     width: 140,
-    height: 8,
+    height: 10,
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "#D6A82E",

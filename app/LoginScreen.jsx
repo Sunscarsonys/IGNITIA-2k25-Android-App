@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -27,6 +27,8 @@ export default function LoginScreen() {
     router.push("/RegisterScreen");
   };
 
+  const [isPasswordVisible, setPasswordVisible] = useState(false);
+
   const data = [
     {
       id: 'inputWrapper',
@@ -34,7 +36,7 @@ export default function LoginScreen() {
         <View style={styles.inputWrapper}>
           <Text style={styles.title}>Sign In</Text>
           <View style={styles.inputContainer}>
-            <Ionicons name="call-outline" size={24} color="#fff" />
+            <Ionicons name="call-outline" size={22} color="#fff" />
             <TextInput
               style={styles.input}
               placeholder="+91"
@@ -43,13 +45,23 @@ export default function LoginScreen() {
             />
           </View>
           <View style={styles.inputContainer}>
-            <Ionicons name="lock-closed-outline" size={24} color="#fff" />
+            <Ionicons name="lock-closed-outline" size={22} color="#fff" />
             <TextInput
               style={styles.input}
               placeholder="Your Password"
               placeholderTextColor="#ffffffaa"
-              secureTextEntry={true}
+              secureTextEntry={!isPasswordVisible} 
             />
+            <TouchableOpacity
+              style={styles.eyeIcon}
+              onPress={() => setPasswordVisible(!isPasswordVisible)} 
+            >
+              <Ionicons
+                name={isPasswordVisible ? "eye-off-outline" : "eye-outline"}
+                size={20}
+                color="#fff"
+              />
+            </TouchableOpacity>
           </View>
           <TouchableOpacity onPress={handleForget}>
             <Text style={styles.forgetPassword}>Forget Password</Text>
@@ -84,12 +96,12 @@ export default function LoginScreen() {
         />
       </View>
       <View style={styles.container}>
-      <FlatList
-        data={data}
-        renderItem={({ item }) => item.component}
-        keyExtractor={(item) => item.id}
-        contentContainerStyle={styles.flatListContainer}
-      />
+        <FlatList
+          data={data}
+          renderItem={({ item }) => item.component}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.flatListContainer}
+        />
       </View>
     </>
   );
@@ -148,6 +160,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "Poppins",
     marginLeft: 10,
+  },
+  eyeIcon: {
+    marginLeft: -30,
+    paddingRight: 10,
   },
   forgetPassword: {
     color: "#CC9913",

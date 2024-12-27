@@ -48,7 +48,7 @@ export default function SignUpScreen() {
 
   const renderInput = ({ item }) => (
     <View style={styles.inputContainer}>
-      <Ionicons name={item.icon} size={24} color="#fff" />
+      <Ionicons name={item.icon} size={22} color="#fff" />
       <TextInput
         style={styles.input}
         placeholder={item.placeholder}
