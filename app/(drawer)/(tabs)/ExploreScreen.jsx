@@ -7,6 +7,7 @@ export default function ExploreScreen() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#0E0019",
       }}
     >
       <Text>This is Explore Screen</Text>

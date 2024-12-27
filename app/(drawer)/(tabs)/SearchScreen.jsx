@@ -7,6 +7,7 @@ export default function SearchScreen() {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#0E0019",
       }}
     >
       <Text>This is Search Screen</Text>

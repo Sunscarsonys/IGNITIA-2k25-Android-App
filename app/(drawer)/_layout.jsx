@@ -59,14 +59,17 @@ const CustomDrawerContent = (props) => {
         {menuItems.map((item, index) => (
           <TouchableOpacity
             key={index}
-            style={styles.drawerItem}
+            style={[
+              styles.drawerItem,
+              pathname === item.route && styles.activeDrawerItem,
+            ]}
             onPress={() => {
               router.push(item.route);
             }}
           >
             <Ionicons
               name={item.icon}
-              size={22}
+              size={28}
               color="#000"
               style={styles.icon}
             />
@@ -107,60 +110,59 @@ export default function Layout() {
 
 const styles = StyleSheet.create({
   drawer: {
-    backgroundColor: "#000000",
-    width: 250,
+    backgroundColor: "#1E1E1E",
+    width: 280,
   },
   drawerContent: {
-    paddingTop: 10,
-    paddingHorizontal: 15,
+    paddingTop: 15,
+    paddingHorizontal: 20,
     flex: 1,
     backgroundColor: "#CC9913",
     borderBottomEndRadius: 16,
     borderTopEndRadius: 16,
   },
   closeIcon: {
-    padding: 10,
+    padding: 15,
     alignItems: "flex-end",
-    marginBottom: 10,
+    marginBottom: 15,
   },
   drawerItemsContainer: {
     flex: 1,
     justifyContent: "center",
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingHorizontal: 10,
   },
   drawerItem: {
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 4,
     paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 40,
-    backgroundColor: "rgba(4, 0, 15, 0.25)",
+    paddingHorizontal: 20,
+    borderRadius: 50,
+    backgroundColor: "transparent",
+    transition: "background-color 0.3s ease",
   },
   drawerItemText: {
-    textAlign: "center",
-    fontFamily: "Poppins",
-    color: "#fff",
-    fontSize: 14,
-    marginLeft: 15,
+    color: "#000",
+    fontSize: 18,
+    marginLeft: 18,
+    fontWeight: "500",
   },
   icon: {
-    width: 24,
+    width: 26,
     textAlign: "center",
   },
   footer: {
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 30,
   },
   footerImage: {
     width: 240,
-    height: 64,
-    borderRadius: 50,
+    height: 70,
+    borderRadius: 20,
     marginBottom: 20,
   },
   footerText: {
-    color: "#000",
+    color: "#333",
     fontSize: 16,
   },
   footerSubText: {
