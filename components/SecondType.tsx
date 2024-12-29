@@ -1,5 +1,6 @@
-import { Image, Pressable, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import React from "react";
+import { useRouter } from "expo-router";
 import Animated, {
   Easing,
   Extrapolation,
@@ -11,8 +12,11 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const SecondType = () => {
+  const router = useRouter();
+
   const firstValue = useSharedValue(30);
   const secondValue = useSharedValue(30);
   const thirdValue = useSharedValue(30);
@@ -33,7 +37,6 @@ const SecondType = () => {
       duration: 500,
     };
     if (isOpen.value) {
-      // Reset options to initial position when closed
       firstWidth.value = withTiming(60, { duration: 100 }, (finish) => {
         if (finish) {
           firstValue.value = withTiming(30, config);
@@ -56,7 +59,6 @@ const SecondType = () => {
       });
       opacity.value = withTiming(0, { duration: 100 });
     } else {
-      // Expand options when open
       firstValue.value = withDelay(200, withSpring(130));
       secondValue.value = withDelay(100, withSpring(210));
       thirdValue.value = withSpring(290);
@@ -157,71 +159,86 @@ const SecondType = () => {
 
   return (
     <View style={styles.container}>
-      {/* Option 1 */}
-      <Animated.View
-        style={[styles.contentContainer, firstIcon, firstWidthStyle]}
+      <TouchableOpacity
+        onPress={() => router.push("/(drawer)/(tabs)/HeroScreen")}
       >
-        <View style={styles.iconContainer}>
-          <Image
-            source={require("../assets/images/splash-icon.png")}
-            style={styles.icon}
-          />
-        </View>
-        <Animated.Text style={[styles.text, opacityText]}>Home</Animated.Text>
-      </Animated.View>
-
-      {/* Option 2 */}
-      <Animated.View
-        style={[styles.contentContainer, secondIcon, secondWidthStyle]}
-      >
-        <View style={styles.iconContainer}>
-          <Image
-            source={require("../assets/images/splash-icon.png")}
-            style={styles.icon}
-          />
-        </View>
-        <Animated.Text style={[styles.text, opacityText]}>Search</Animated.Text>
-      </Animated.View>
-
-      {/* Option 3 */}
-      <Animated.View
-        style={[styles.contentContainer, thirdIcon, thirdWidthStyle]}
-      >
-        <View style={styles.iconContainer}>
-          <Image
-            source={require("../assets/images/splash-icon.png")}
-            style={styles.icon}
-          />
-        </View>
-        <Animated.Text style={[styles.text, opacityText]}>
-          Explore
-        </Animated.Text>
-      </Animated.View>
-
-      {/* Option 4 */}
-      <Animated.View
-        style={[styles.contentContainer, fourthIcon, fourthWidthStyle]}
-      >
-        <View style={styles.iconContainer}>
-          <Image
-            source={require("../assets/images/splash-icon.png")}
-            style={styles.icon}
-          />
-        </View>
-        <Animated.Text style={[styles.text, opacityText]}>
-          Profile
-        </Animated.Text>
-      </Animated.View>
-
-      {/* Floating Button */}
-      <Pressable style={styles.contentContainer} onPress={() => handlePress()}>
-        <Animated.View style={[styles.iconContainer, plusIcon]}>
-          <Image
-            source={require("../assets/images/splash-icon.png")}
-            style={styles.icon}
-          />
+        <Animated.View
+          style={[styles.contentContainer, firstIcon, firstWidthStyle]}
+        >
+          <View style={styles.iconContainer}>
+            <Image
+              source={require("../assets/images/splash-icon.png")}
+              style={styles.icon}
+            />
+          </View>
+          <Animated.Text style={[styles.text, opacityText]}>Home</Animated.Text>
         </Animated.View>
-      </Pressable>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => router.push("/(drawer)/(tabs)/SearchScreen")}
+      >
+        <Animated.View
+          style={[styles.contentContainer, secondIcon, secondWidthStyle]}
+        >
+          <View style={styles.iconContainer}>
+            <Image
+              source={require("../assets/images/splash-icon.png")}
+              style={styles.icon}
+            />
+          </View>
+          <Animated.Text style={[styles.text, opacityText]}>
+            Search
+          </Animated.Text>
+        </Animated.View>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => router.push("/(drawer)/(tabs)/ExploreScreen")}
+      >
+        <Animated.View
+          style={[styles.contentContainer, thirdIcon, thirdWidthStyle]}
+        >
+          <View style={styles.iconContainer}>
+            <Image
+              source={require("../assets/images/splash-icon.png")}
+              style={styles.icon}
+            />
+          </View>
+          <Animated.Text style={[styles.text, opacityText]}>
+            Explore
+          </Animated.Text>
+        </Animated.View>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => router.push("/(drawer)/(tabs)/ProfileScreen")}
+      >
+        <Animated.View
+          style={[styles.contentContainer, fourthIcon, fourthWidthStyle]}
+        >
+          <View style={styles.iconContainer}>
+            <Image
+              source={require("../assets/images/splash-icon.png")}
+              style={styles.icon}
+            />
+          </View>
+          <Animated.Text style={[styles.text, opacityText]}>
+            Profile
+          </Animated.Text>
+        </Animated.View>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={handlePress}>
+        <Animated.View style={[styles.contentContainer, plusIcon]}>
+          <View style={styles.iconContainer}>
+            <Image
+              source={require("../assets/images/splash-icon.png")}
+              style={styles.icon}
+            />
+          </View>
+        </Animated.View>
+      </TouchableOpacity>
     </View>
   );
 };
