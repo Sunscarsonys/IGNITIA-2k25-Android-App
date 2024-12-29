@@ -1,50 +1,49 @@
-import { Tabs } from "expo-router";
 import React from "react";
-import { Ionicons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
+import SecondType from "@/components/SecondType";
 
-export default function TabLayout() {
+function TabLayout() {
   return (
     <Tabs
       screenOptions={{
         headerShown: false,
+        tabBarShowLabel: false,
+        tabBarStyle: { display: "none" },
       }}
     >
       <Tabs.Screen
         name="HeroScreen"
         options={{
           title: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" size={size} color={color} />
-          ),
         }}
       />
       <Tabs.Screen
         name="SearchScreen"
         options={{
           title: "Search",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="search" size={size} color={color} />
-          ),
         }}
       />
       <Tabs.Screen
         name="ExploreScreen"
         options={{
           title: "Explore",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="compass" size={size} color={color} />
-          ),
         }}
       />
       <Tabs.Screen
         name="ProfileScreen"
         options={{
           title: "Profile",
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person" size={size} color={color} />
-          ),
         }}
       />
     </Tabs>
+  );
+}
+
+export default function RootLayout() {
+  return (
+    <>
+      <TabLayout />
+      <SecondType />
+    </>
   );
 }

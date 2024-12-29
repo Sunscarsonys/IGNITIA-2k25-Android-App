@@ -1,5 +1,5 @@
-import {Image, Pressable, StyleSheet, View} from 'react-native';
-import React from 'react';
+import { Image, Pressable, StyleSheet, View } from "react-native";
+import React from "react";
 import Animated, {
   Easing,
   Extrapolation,
@@ -10,7 +10,7 @@ import Animated, {
   withDelay,
   withSpring,
   withTiming,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
 const SecondType = () => {
   const firstValue = useSharedValue(30);
@@ -24,7 +24,7 @@ const SecondType = () => {
   const isOpen = useSharedValue(false);
   const opacity = useSharedValue(0);
   const progress = useDerivedValue(() =>
-    isOpen.value ? withTiming(1) : withTiming(0),
+    isOpen.value ? withTiming(1) : withTiming(0)
   );
 
   const handlePress = () => {
@@ -34,27 +34,27 @@ const SecondType = () => {
     };
     if (isOpen.value) {
       // Reset options to initial position when closed
-      firstWidth.value = withTiming(60, {duration: 100}, finish => {
+      firstWidth.value = withTiming(60, { duration: 100 }, (finish) => {
         if (finish) {
           firstValue.value = withTiming(30, config);
         }
       });
-      secondWidth.value = withTiming(60, {duration: 100}, finish => {
+      secondWidth.value = withTiming(60, { duration: 100 }, (finish) => {
         if (finish) {
           secondValue.value = withDelay(50, withTiming(30, config));
         }
       });
-      thirdWidth.value = withTiming(60, {duration: 100}, finish => {
+      thirdWidth.value = withTiming(60, { duration: 100 }, (finish) => {
         if (finish) {
           thirdValue.value = withDelay(100, withTiming(30, config));
         }
       });
-      fourthWidth.value = withTiming(60, {duration: 100}, finish => {
+      fourthWidth.value = withTiming(60, { duration: 100 }, (finish) => {
         if (finish) {
           fourthValue.value = withDelay(150, withTiming(30, config));
         }
       });
-      opacity.value = withTiming(0, {duration: 100});
+      opacity.value = withTiming(0, { duration: 100 });
     } else {
       // Expand options when open
       firstValue.value = withDelay(200, withSpring(130));
@@ -102,11 +102,11 @@ const SecondType = () => {
       firstValue.value,
       [30, 130],
       [0, 1],
-      Extrapolation.CLAMP,
+      Extrapolation.CLAMP
     );
     return {
       bottom: firstValue.value,
-      transform: [{scale: scale}],
+      transform: [{ scale: scale }],
     };
   });
 
@@ -115,11 +115,11 @@ const SecondType = () => {
       secondValue.value,
       [30, 210],
       [0, 1],
-      Extrapolation.CLAMP,
+      Extrapolation.CLAMP
     );
     return {
       bottom: secondValue.value,
-      transform: [{scale: scale}],
+      transform: [{ scale: scale }],
     };
   });
 
@@ -128,11 +128,11 @@ const SecondType = () => {
       thirdValue.value,
       [30, 290],
       [0, 1],
-      Extrapolation.CLAMP,
+      Extrapolation.CLAMP
     );
     return {
       bottom: thirdValue.value,
-      transform: [{scale: scale}],
+      transform: [{ scale: scale }],
     };
   });
 
@@ -141,17 +141,17 @@ const SecondType = () => {
       fourthValue.value,
       [30, 370],
       [0, 1],
-      Extrapolation.CLAMP,
+      Extrapolation.CLAMP
     );
     return {
       bottom: fourthValue.value,
-      transform: [{scale: scale}],
+      transform: [{ scale: scale }],
     };
   });
 
   const plusIcon = useAnimatedStyle(() => {
     return {
-      transform: [{rotate: `${progress.value * 45}deg`}],
+      transform: [{ rotate: `${progress.value * 45}deg` }],
     };
   });
 
@@ -159,38 +159,37 @@ const SecondType = () => {
     <View style={styles.container}>
       {/* Option 1 */}
       <Animated.View
-        style={[styles.contentContainer, firstIcon, firstWidthStyle]}>
+        style={[styles.contentContainer, firstIcon, firstWidthStyle]}
+      >
         <View style={styles.iconContainer}>
           <Image
-            source={require('../assets/images/splash-icon.png')}
+            source={require("../assets/images/splash-icon.png")}
             style={styles.icon}
           />
         </View>
-        <Animated.Text style={[styles.text, opacityText]}>
-          Home
-        </Animated.Text>
+        <Animated.Text style={[styles.text, opacityText]}>Home</Animated.Text>
       </Animated.View>
 
       {/* Option 2 */}
       <Animated.View
-        style={[styles.contentContainer, secondIcon, secondWidthStyle]}>
+        style={[styles.contentContainer, secondIcon, secondWidthStyle]}
+      >
         <View style={styles.iconContainer}>
           <Image
-            source={require('../assets/images/splash-icon.png')}
+            source={require("../assets/images/splash-icon.png")}
             style={styles.icon}
           />
         </View>
-        <Animated.Text style={[styles.text, opacityText]}>
-          Search
-        </Animated.Text>
+        <Animated.Text style={[styles.text, opacityText]}>Search</Animated.Text>
       </Animated.View>
 
       {/* Option 3 */}
       <Animated.View
-        style={[styles.contentContainer, thirdIcon, thirdWidthStyle]}>
+        style={[styles.contentContainer, thirdIcon, thirdWidthStyle]}
+      >
         <View style={styles.iconContainer}>
           <Image
-            source={require('../assets/images/splash-icon.png')}
+            source={require("../assets/images/splash-icon.png")}
             style={styles.icon}
           />
         </View>
@@ -201,10 +200,11 @@ const SecondType = () => {
 
       {/* Option 4 */}
       <Animated.View
-        style={[styles.contentContainer, fourthIcon, fourthWidthStyle]}>
+        style={[styles.contentContainer, fourthIcon, fourthWidthStyle]}
+      >
         <View style={styles.iconContainer}>
           <Image
-            source={require('../assets/images/splash-icon.png')}
+            source={require("../assets/images/splash-icon.png")}
             style={styles.icon}
           />
         </View>
@@ -214,12 +214,10 @@ const SecondType = () => {
       </Animated.View>
 
       {/* Floating Button */}
-      <Pressable
-        style={styles.contentContainer}
-        onPress={() => handlePress()}>
+      <Pressable style={styles.contentContainer} onPress={() => handlePress()}>
         <Animated.View style={[styles.iconContainer, plusIcon]}>
           <Image
-            source={require('../assets/images/splash-icon.png')}
+            source={require("../assets/images/splash-icon.png")}
             style={styles.icon}
           />
         </Animated.View>
@@ -232,30 +230,30 @@ export default SecondType;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    zIndex: 100,
   },
   contentContainer: {
-    backgroundColor: '#0F56B3',
-    position: 'absolute',
+    backgroundColor: "#0F56B3",
+    position: "absolute",
     bottom: 30,
     right: 30,
     borderRadius: 50,
-    flexDirection: 'row',
-    alignItems: 'center',
-    overflow: 'hidden',
+    flexDirection: "row",
+    alignItems: "center",
+    overflow: "hidden",
   },
   iconContainer: {
     width: 60,
     height: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   icon: {
     width: 26,
     height: 26,
   },
   text: {
-    color: 'white',
+    color: "white",
     fontSize: 18,
   },
 });

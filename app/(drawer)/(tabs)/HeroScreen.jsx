@@ -7,7 +7,6 @@ export default function HeroScreen() {
     <View style={styles.container}>
       <Header />
       <Text>This is Home Screen</Text>
-      <SecondType style={styles.secondType} />
     </View>
   );
 }
@@ -22,6 +21,6 @@ const styles = StyleSheet.create({
   secondType: {
     position: "absolute",
     bottom: 100,
-    right: 100,   
+    right: 100,
   },
 });
