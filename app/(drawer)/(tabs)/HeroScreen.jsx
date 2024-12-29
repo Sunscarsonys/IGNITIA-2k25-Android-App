@@ -1,15 +1,16 @@
 import { Text, View } from "react-native";
+import Header from "@/components/Header";
 
 export default function HeroScreen() {
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#0E0019",
       }}
     >
+      <Header></Header>
       <Text>This is Home Screen</Text>
     </View>
   );

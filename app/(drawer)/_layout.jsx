@@ -96,7 +96,7 @@ export default function Layout() {
       screenOptions={{ headerShown: false }}
       drawerStyle={styles.drawer}
     >
-      <Drawer.Screen name="(tabs)" options={{ headerShown: true }} />
+      <Drawer.Screen name="(tabs)" options={{ headerShown: false }} />
       <Drawer.Screen name="HomeScreen" options={{ headerShown: true }} />
       <Drawer.Screen name="EventScreen" options={{ headerShown: true }} />
       <Drawer.Screen name="CalendarScreen" options={{ headerShown: true }} />
