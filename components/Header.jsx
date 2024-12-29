@@ -29,13 +29,13 @@ const Header = () => {
           style={styles.iconContainer}
           onPress={() => navigation.navigate("/NotificationScreen")}
         >
-          <Ionicons name="notifications-outline" size={24} color="#fff" />
+          <Ionicons name="notifications-outline" size={22} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.iconContainer}
           onPress={() => navigation.navigate("/(drawer)/CartScreen")}
         >
-          <Ionicons name="cart-outline" size={24} color="#fff" />
+          <Ionicons name="cart-outline" size={22} color="#fff" />
         </TouchableOpacity>
       </View>
     </View>
@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   hamBtn: {
-    width: 80,
-    height: 80,
+    width: 74,
+    height: 74,
     resizeMode: "contain",
   },
   logoContainer: {
@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    width: 120,
-    height: 60,
+    width: 110,
+    height: 50,
     resizeMode: "contain",
   },
   iconsContainer: {

@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 4,
-    paddingVertical: 10,
+    paddingVertical: 4,
     paddingHorizontal: 20,
     borderRadius: 50,
     backgroundColor: "transparent",

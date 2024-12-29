@@ -19,14 +19,14 @@ import { Ionicons } from "@expo/vector-icons";
 const SecondType = () => {
   const router = useRouter();
 
-  const firstValue = useSharedValue(30);
-  const secondValue = useSharedValue(30);
-  const thirdValue = useSharedValue(30);
-  const fourthValue = useSharedValue(30);
-  const firstWidth = useSharedValue(60);
-  const secondWidth = useSharedValue(60);
-  const thirdWidth = useSharedValue(60);
-  const fourthWidth = useSharedValue(60);
+  const firstValue = useSharedValue(25);
+  const secondValue = useSharedValue(25);
+  const thirdValue = useSharedValue(25);
+  const fourthValue = useSharedValue(25);
+  const firstWidth = useSharedValue(50);
+  const secondWidth = useSharedValue(50);
+  const thirdWidth = useSharedValue(50);
+  const fourthWidth = useSharedValue(50);
   const isOpen = useSharedValue(false);
   const opacity = useSharedValue(0);
   const progress = useDerivedValue(() =>
@@ -39,22 +39,22 @@ const SecondType = () => {
       duration: 500,
     };
     if (isOpen.value) {
-      firstWidth.value = withTiming(60, { duration: 100 }, (finish) => {
+      firstWidth.value = withTiming(50, { duration: 100 }, (finish) => {
         if (finish) {
-          firstValue.value = withTiming(30, config);
+          firstValue.value = withTiming(25, config);
         }
       });
-      secondWidth.value = withTiming(60, { duration: 100 }, (finish) => {
+      secondWidth.value = withTiming(50, { duration: 100 }, (finish) => {
         if (finish) {
           secondValue.value = withDelay(50, withTiming(30, config));
         }
       });
-      thirdWidth.value = withTiming(60, { duration: 100 }, (finish) => {
+      thirdWidth.value = withTiming(50, { duration: 100 }, (finish) => {
         if (finish) {
           thirdValue.value = withDelay(100, withTiming(30, config));
         }
       });
-      fourthWidth.value = withTiming(60, { duration: 100 }, (finish) => {
+      fourthWidth.value = withTiming(50, { duration: 100 }, (finish) => {
         if (finish) {
           fourthValue.value = withDelay(150, withTiming(30, config));
         }
@@ -271,22 +271,22 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 30,
     right: 30,
-    borderRadius: 50,
+    borderRadius: 25, 
     flexDirection: "row",
     alignItems: "center",
     overflow: "hidden",
   },
   gradientBackground: {
     flex: 1,
-    borderRadius: 50,
+    borderRadius: 25, 
     flexDirection: "row",
     alignItems: "center",
   },
   tabContainer: {
     position: "absolute",
-    bottom: 30,
-    right: 30,
-    borderRadius: 50,
+    bottom: 20,
+    right: 20,
+    borderRadius: 25, 
     flexDirection: "row",
     alignItems: "center",
     overflow: "hidden",
@@ -296,17 +296,17 @@ const styles = StyleSheet.create({
     height: 80,
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 50,
+    borderRadius: 25,
   },
   iconContainer: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     justifyContent: "center",
     alignItems: "center",
   },
   icon: {
-    width: 28,
-    height: 28,
+    width: 25,
+    height: 25,
   },
   text: {
     textAlign: "center",
@@ -315,3 +315,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+
