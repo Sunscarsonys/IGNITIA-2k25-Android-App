@@ -1,4 +1,4 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View, ImageBackground } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import Animated, {
@@ -13,6 +13,8 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { LinearGradient } from "expo-linear-gradient";
+import { Ionicons } from "@expo/vector-icons";
 
 const SecondType = () => {
   const router = useRouter();
@@ -160,36 +162,24 @@ const SecondType = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => router.push("/(drawer)/(tabs)/HeroScreen")}
+        onPress={() => router.push("/(drawer)/(tabs)/ProfileScreen")}
       >
         <Animated.View
           style={[styles.contentContainer, firstIcon, firstWidthStyle]}
         >
-          <View style={styles.iconContainer}>
-            <Image
-              source={require("../assets/images/splash-icon.png")}
-              style={styles.icon}
-            />
-          </View>
-          <Animated.Text style={[styles.text, opacityText]}>Home</Animated.Text>
-        </Animated.View>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        onPress={() => router.push("/(drawer)/(tabs)/SearchScreen")}
-      >
-        <Animated.View
-          style={[styles.contentContainer, secondIcon, secondWidthStyle]}
-        >
-          <View style={styles.iconContainer}>
-            <Image
-              source={require("../assets/images/splash-icon.png")}
-              style={styles.icon}
-            />
-          </View>
-          <Animated.Text style={[styles.text, opacityText]}>
-            Search
-          </Animated.Text>
+          <LinearGradient
+            colors={["#D19A08", "#FEDB7E", "#D19A08"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.gradientBackground}
+          >
+            <View style={styles.iconContainer}>
+              <Ionicons name="person-circle-outline" size={28} color="#000" />
+            </View>
+            <Animated.Text style={[styles.text, opacityText]}>
+              Profile
+            </Animated.Text>
+          </LinearGradient>
         </Animated.View>
       </TouchableOpacity>
 
@@ -197,46 +187,74 @@ const SecondType = () => {
         onPress={() => router.push("/(drawer)/(tabs)/ExploreScreen")}
       >
         <Animated.View
-          style={[styles.contentContainer, thirdIcon, thirdWidthStyle]}
+          style={[styles.contentContainer, secondIcon, secondWidthStyle]}
         >
-          <View style={styles.iconContainer}>
-            <Image
-              source={require("../assets/images/splash-icon.png")}
-              style={styles.icon}
-            />
-          </View>
-          <Animated.Text style={[styles.text, opacityText]}>
-            Explore
-          </Animated.Text>
+          <LinearGradient
+            colors={["#D19A08", "#FEDB7E", "#D19A08"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.gradientBackground}
+          >
+            <View style={styles.iconContainer}>
+              <Ionicons name="compass-outline" size={28} color="#000" />
+            </View>
+            <Animated.Text style={[styles.text, opacityText]}>
+              Explore
+            </Animated.Text>
+          </LinearGradient>
         </Animated.View>
       </TouchableOpacity>
 
       <TouchableOpacity
-        onPress={() => router.push("/(drawer)/(tabs)/ProfileScreen")}
+        onPress={() => router.push("/(drawer)/(tabs)/SearchScreen")}
+      >
+        <Animated.View
+          style={[styles.contentContainer, thirdIcon, thirdWidthStyle]}
+        >
+          <LinearGradient
+            colors={["#D19A08", "#FEDB7E", "#D19A08"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.gradientBackground}
+          >
+            <View style={styles.iconContainer}>
+              <Ionicons name="search-outline" size={28} color="#000" />
+            </View>
+            <Animated.Text style={[styles.text, opacityText]}>
+              Search
+            </Animated.Text>
+          </LinearGradient>
+        </Animated.View>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => router.push("/(drawer)/(tabs)/HeroScreen")}
       >
         <Animated.View
           style={[styles.contentContainer, fourthIcon, fourthWidthStyle]}
         >
-          <View style={styles.iconContainer}>
-            <Image
-              source={require("../assets/images/splash-icon.png")}
-              style={styles.icon}
-            />
-          </View>
-          <Animated.Text style={[styles.text, opacityText]}>
-            Profile
-          </Animated.Text>
+          <LinearGradient
+            colors={["#D19A08", "#FEDB7E", "#D19A08"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.gradientBackground}
+          >
+            <View style={styles.iconContainer}>
+              <Ionicons name="home-outline" size={28} color="#000" />
+            </View>
+            <Animated.Text style={[styles.text, opacityText]}>
+              Home
+            </Animated.Text>
+          </LinearGradient>
         </Animated.View>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={handlePress}>
-        <Animated.View style={[styles.contentContainer, plusIcon]}>
-          <View style={styles.iconContainer}>
-            <Image
-              source={require("../assets/images/splash-icon.png")}
-              style={styles.icon}
-            />
-          </View>
+        <Animated.View style={[styles.tabContainer, plusIcon]}>
+          <ImageBackground
+            source={require("../assets/images/Ham-Btn.png")}
+            style={styles.backgroundImage}
+          ></ImageBackground>
         </Animated.View>
       </TouchableOpacity>
     </View>
@@ -250,7 +268,6 @@ const styles = StyleSheet.create({
     zIndex: 100,
   },
   contentContainer: {
-    backgroundColor: "#0F56B3",
     position: "absolute",
     bottom: 30,
     right: 30,
@@ -259,6 +276,28 @@ const styles = StyleSheet.create({
     alignItems: "center",
     overflow: "hidden",
   },
+  gradientBackground: {
+    flex: 1,
+    borderRadius: 50,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  tabContainer: {
+    position: "absolute",
+    bottom: 30,
+    right: 30,
+    borderRadius: 50,
+    flexDirection: "row",
+    alignItems: "center",
+    overflow: "hidden",
+  },
+  backgroundImage: {
+    width: 80,
+    height: 80,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 50,
+  },
   iconContainer: {
     width: 60,
     height: 60,
@@ -266,11 +305,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   icon: {
-    width: 26,
-    height: 26,
+    width: 28,
+    height: 28,
   },
   text: {
-    color: "white",
+    textAlign: "center",
+    color: "#000",
+    fontWeight: "600",
     fontSize: 18,
   },
 });
