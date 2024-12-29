@@ -4,6 +4,7 @@ import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 import { router, usePathname } from "expo-router";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import DrawerHeader from "@/components/DrawerHeader";
 
 const CustomDrawerContent = (props) => {
   const pathname = usePathname();
@@ -96,14 +97,48 @@ export default function Layout() {
       screenOptions={{ headerShown: false }}
       drawerStyle={styles.drawer}
     >
-      <Drawer.Screen name="(tabs)" options={{ headerShown: false }} />
-      <Drawer.Screen name="HomeScreen" options={{ headerShown: true }} />
-      <Drawer.Screen name="EventScreen" options={{ headerShown: true }} />
-      <Drawer.Screen name="CalendarScreen" options={{ headerShown: true }} />
-      <Drawer.Screen name="CartScreen" options={{ headerShown: true }} />
-      <Drawer.Screen name="TicketScreen" options={{ headerShown: true }} />
-      <Drawer.Screen name="SponsorScreen" options={{ headerShown: true }} />
-      <Drawer.Screen name="TeamScreen" options={{ headerShown: true }} />
+      <Drawer.Screen
+        name="EventScreen"
+        options={{
+          headerShown: true,
+          header: () => <DrawerHeader title="Events" />,
+        }}
+      />
+      <Drawer.Screen
+        name="CalendarScreen"
+        options={{
+          headerShown: true,
+          header: () => <DrawerHeader title="Calendar" />,
+        }}
+      />
+      <Drawer.Screen
+        name="CartScreen"
+        options={{
+          headerShown: true,
+          header: () => <DrawerHeader title="Your Cart" />,
+        }}
+      />
+      <Drawer.Screen
+        name="TicketScreen"
+        options={{
+          headerShown: true,
+          header: () => <DrawerHeader title="Your Ticket" />,
+        }}
+      />
+      <Drawer.Screen
+        name="SponsorScreen"
+        options={{
+          headerShown: true,
+          header: () => <DrawerHeader title="Sponsors" />,
+        }}
+      />
+      <Drawer.Screen
+        name="TeamScreen"
+        options={{
+          headerShown: true,
+          header: () => <DrawerHeader title="Team" />,
+        }}
+      />
     </Drawer>
   );
 }
