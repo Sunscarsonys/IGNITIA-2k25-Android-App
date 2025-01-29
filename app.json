@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "ignitia",
-    "slug": "ignitia-2k25",
+    "name": "Ignitia-2K25",
+    "slug": "Ignitia-2K25",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "ignitia-2k25",
+    "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
