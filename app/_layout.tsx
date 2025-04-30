@@ -10,6 +10,7 @@ export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     Poppins: require("../assets/fonts/Poppins-Regular.ttf"),
+    Floral: require("../assets/fonts/floral.ttf"),
   });
 
   useEffect(() => {
